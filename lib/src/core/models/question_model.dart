@@ -1,13 +1,11 @@
 class Question {
-  final String category;
   final String questionText;
-  final String answer;
-  final List<String> options;
+  final int correctAnswer;
+  final List<String> answers;
 
   Question({
-    required this.category,
     required this.questionText,
-    required this.answer,
-    required this.options,
+    required this.correctAnswer,
+    required this.answers,
   });
 }
