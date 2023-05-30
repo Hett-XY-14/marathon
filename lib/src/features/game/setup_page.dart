@@ -20,7 +20,6 @@ class _SetupPageState extends State<SetupPage> {
     "lib/src/assets/coon.jpg",
     "lib/src/assets/dino.jpg",
     "lib/src/assets/dogo.jpg",
-    "lib/src/assets/patrick.jpg",
   ];
   List<Player> _players = [];
   String? _selectedAvatar;
@@ -102,6 +101,7 @@ class _SetupPageState extends State<SetupPage> {
               ElevatedButton(
                 child: Text('Start Game'),
                 onPressed: _players.length >= 2 ? () {
+                  _players.add(Player(name: "Ignorance", avatar: "lib/src/assets/patrick.jpg"));
                   // Navigate to the game screen
                   Navigator.push(
                     context,

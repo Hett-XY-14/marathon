@@ -5,13 +5,12 @@ import 'package:marathon/src/core/utils/math_utils.dart';
 class GameService {
   List<Player> players;
   int currentPlayerIndex;
-  Player ignorance = Player(name: "ignorance", score: 0, avatar: "null");
 
   GameService(this.players) : currentPlayerIndex = 0;
   Player get currentPlayer => players[currentPlayerIndex];
 
   void nextTurn() {
-    currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
+    currentPlayerIndex = (currentPlayerIndex + 1) % players.length-1;
   }
 
   void updateScore(bool isCorrect, int dieResult) {
@@ -19,8 +18,8 @@ class GameService {
       currentPlayer.score += 1;
       currentPlayer.position += dieResult;
     } else {
-      ignorance.score +=1;
-      ignorance.position +=dieResult;
+      players[players.length-1].score +=1;
+      players[players.length-1].position +=dieResult;
     }
   }
 
@@ -31,7 +30,7 @@ class GameService {
 
   bool isGameOver() {
     if (currentPlayer.position >= 31) return true;
-    if (ignorance.position >= 31) return true;
+    if (players[players.length-1].position >= 31) return true;
     return false;
   }
 }

@@ -15,22 +15,20 @@ class GamePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Game Screen'),
+        title: Text('Marathon'),
       ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                //GameBoard(), // Assuming this is a widget you've created for the game board
+            child: Stack(
+                children: <Widget>[
+                GameBoard(), // Assuming this is a widget you've created for the game board
                 SizedBox(height: 20),
                 //QuestionDisplay(), // Assuming this is a widget you've created to display the question
                 //AnswerOption(), // Assuming this is a widget you've created for the answer options
                 SizedBox(height: 20),
                 //DiceButton(), // Assuming this is a widget you've created for the dice button
-                Text("Test"),
             ],
             ),
           ),

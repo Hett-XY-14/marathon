@@ -10,7 +10,6 @@ class GameProvider with ChangeNotifier {
   final GameService gameService;
   final QuestionService questionService;
 
-  // game state
   Player? currentPlayer;
   Question? currentQuestion;
   int dieResult = 0;
