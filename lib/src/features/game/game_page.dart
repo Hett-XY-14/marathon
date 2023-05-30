@@ -10,20 +10,17 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class GamePage extends StatelessWidget {
-  //List<Player> players = [Player(name: "player1",score: 0, position: 0), Player(name: "player2", score: 0, position: 0)];
-  GameService gameService = GameService([Player(name: "player1",score: 0, position: 0), Player(name: "player2", score: 0, position: 0)]);
-  QuestionService questionService = QuestionService();
+
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => GameProvider(gameService: gameService, questionService: questionService),
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text('Game Screen'),
-        ),
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Game Screen'),
+      ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -34,7 +31,7 @@ class GamePage extends StatelessWidget {
                 SizedBox(height: 20),
                 //DiceButton(), // Assuming this is a widget you've created for the dice button
                 Text("Test"),
-              ],
+            ],
             ),
           ),
         ),

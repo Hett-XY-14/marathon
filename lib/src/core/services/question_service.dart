@@ -5,24 +5,24 @@ import 'package:marathon/src/core/utils/math_utils.dart';
 
 class QuestionService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
-  final List<Question> questions = [];
+  List<Question> questions = [];
   Question? currentQuestion;
 
-  Future<List<Question>> fetchQuestions(String category) async {
+  Future<List<Question>> fetchQuestions() async {
     try {
-      final questionsSnapshot = await _db.collection('questions').get();
+      var questionsSnapshot = await _db.collection('questions').get();
       print("Questions successfully retrieved");
 
       for (var question in questionsSnapshot.docs) {
         questions.add(
           Question(
-            questionText: question['question'],
+            question: question.data()['question'],
             correctAnswer: question.data()['correctAnswer'],
             answers: List<String>.from(question.data()['answers']),
           ),
         );
+        print(questions.length);
       }
-
       return questions;
     } catch (error) {
       print("Error retrieving questions: $error");
@@ -32,7 +32,9 @@ class QuestionService {
 
   Question? getNextQuestion() {
     int randomIndex = getRandomNumber(0,questions.length);
+    print(randomIndex);
     currentQuestion = questions.removeAt(randomIndex);
+    print(currentQuestion?.question);
     return currentQuestion;
   }
 

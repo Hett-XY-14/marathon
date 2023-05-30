@@ -16,12 +16,14 @@ class GameProvider with ChangeNotifier {
   int dieResult = 0;
   bool gameFinished = false;
 
-  GameProvider({required this.gameService, required this.questionService}) {
+  GameProvider({required this.gameService, required this.questionService,}) {
     startGame();
   }
 
-  void startGame() {
+  void startGame() async{
     currentPlayer = gameService.currentPlayer;
+    await questionService.fetchQuestions();
+    questionService.getNextQuestion();
     notifyListeners();
   }
 

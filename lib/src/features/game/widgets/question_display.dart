@@ -8,6 +8,6 @@ class QuestionDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(question.questionText);
+    return Text(question.question);
   }
 }

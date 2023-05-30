@@ -5,7 +5,7 @@ import 'package:marathon/src/core/utils/math_utils.dart';
 class GameService {
   List<Player> players;
   int currentPlayerIndex;
-  Player ignorance = Player(name: "ignorance", score: 0);
+  Player ignorance = Player(name: "ignorance", score: 0, avatar: "null");
 
   GameService(this.players) : currentPlayerIndex = 0;
   Player get currentPlayer => players[currentPlayerIndex];
