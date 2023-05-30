@@ -33,7 +33,7 @@ class GameBoard extends StatelessWidget {
           Expanded(
             flex: 10,
             child: Container(
-              color: Colors.blue,
+              color: Colors.white70,
               child: Consumer<GameProvider>(
                 builder: (context, gameProvider, child) {
                   return Column(

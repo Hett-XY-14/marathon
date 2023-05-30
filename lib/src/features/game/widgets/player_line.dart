@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marathon/src/core/models/player_model.dart';
 import 'package:marathon/src/features/game/game_provider.dart';
-import 'package:marathon/src/features/game/widgets/avatar.dart';
+import 'package:marathon/src/features/game/widgets/player_position.dart';
 import 'package:provider/provider.dart';
 
 class PlayerLine extends StatelessWidget {
@@ -16,10 +16,13 @@ class PlayerLine extends StatelessWidget {
         children: [
           Consumer<GameProvider>(
             builder: (context, gameProvider, child) {
-              return PlayerAvatar(
+              return PlayerPosition(
                   player: player!,
                   isCurrentPlayer: gameProvider.gameService.currentPlayer.name == player!.name ? true : false
               );
+
+
+
             }
           ),
         ],

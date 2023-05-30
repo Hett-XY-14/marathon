@@ -1,60 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:marathon/src/core/models/player_model.dart';
+import 'package:marathon/src/shared/styles.dart';
 
 class PlayerAvatar extends StatelessWidget {
-  final Player player;
-  final bool isCurrentPlayer;
+  double avatarSize;
+  bool isCurrentPlayer;
+  Player player;
 
-  const PlayerAvatar({
-    Key? key,
-    required this.player,
-    required this.isCurrentPlayer,
-  }) : super(key: key);
+  PlayerAvatar({required this.avatarSize, required this.isCurrentPlayer, required this.player});
 
   @override
-  Widget build(BuildContext context) {
-    int playerPosition = player.position;
-
-    // Calculate the position of the avatar on the board based on the player's position
-    double boardWidth = 1400;
-    double avatarSize = 90;
-    double maxPosition = 31;
-    double boardPadding = avatarSize / 2;
-    double positionFraction = playerPosition / maxPosition;
-    double avatarX = (boardWidth - boardPadding * 2) * positionFraction + boardPadding;
-
-    return Positioned(
-      top: 0,
-      left: avatarX - avatarSize / 2,
-      child: Column(
-        children: [
-          ClipOval(
-            child: Container(
-              width: avatarSize,
-              height: avatarSize,
-              color: isCurrentPlayer ? Colors.green : Colors.blue,
-              child: Image.asset(
-                player.avatar,
+  Widget build (BuildContext context) {
+    return Column(
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(8.0),
+          child: Container(
+            width: avatarSize,
+            height: avatarSize,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(25)),
+              shape: BoxShape.rectangle,
+              border: Border.all(
+                color: isCurrentPlayer ? Colors.green : Colors.black,
+                width: 3.0,
+              ),
+              image: DecorationImage(
+                image: AssetImage(player.avatar),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          Text(
+        ),
+        Text(
             player.name,
-            style: const TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Text(
+            style: title
+        ),
+        Text(
             player.score.toString(),
-            style: const TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ],
-      ),
+            style: subtitle
+        ),
+      ],
     );
   }
 }

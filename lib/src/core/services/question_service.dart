@@ -33,16 +33,19 @@ class QuestionService {
   Question? getNextQuestion() {
     int randomIndex = getRandomNumber(0,questions.length);
     print(randomIndex);
+    print(currentQuestion==null ? "getNextQuestion: current question is null" : currentQuestion!.question);
     currentQuestion = questions.removeAt(randomIndex);
-    print(currentQuestion?.question);
+    print(currentQuestion==null ? "getNextQuestion: current question is null" : currentQuestion!.question);
     return currentQuestion;
   }
 
   Question? getCurrentQuestion() {
+    print(currentQuestion==null ? "getCurrentQuestion: current question is null" : currentQuestion!.question);
     return currentQuestion;
   }
 
   bool checkAnswer(int answer) {
+    print(currentQuestion==null ? "checkAnswer: current question is null" : currentQuestion!.question);
     return currentQuestion?.correctAnswer == answer ? true : false;
   }
 

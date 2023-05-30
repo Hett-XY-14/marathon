@@ -10,7 +10,7 @@ class GameService {
   Player get currentPlayer => players[currentPlayerIndex];
 
   void nextTurn() {
-    currentPlayerIndex = (currentPlayerIndex + 1) % players.length-1;
+    currentPlayerIndex = (currentPlayerIndex + 1) % (players.length-1);
   }
 
   void updateScore(bool isCorrect, int dieResult) {

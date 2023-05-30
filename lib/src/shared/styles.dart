@@ -1,31 +1,33 @@
-//Titulo 
-TextStyle tituloStyle = TextStyle(
-  fontSize: 32,
-  fontWeight: FontWeight.bold,
-  color: Colors.deepPurple,
-  fontFamily: 'Pacifico',
+import 'package:flutter/material.dart';
+
+//Titulo
+TextStyle title = const TextStyle(
+  fontSize: 24,
+  fontWeight: FontWeight.w300,
+  color: Colors.black,
+  fontFamily: 'Roboto',
 );
 
 //Subtitulo 
-TextStyle subtituloStyle = TextStyle(
+TextStyle subtitle = TextStyle(
   fontSize: 20,
   fontWeight: FontWeight.w600,
-  color: Colors.blueGrey[700],
+  color: Colors.black54,
   fontFamily: 'Montserrat',
 );
 
 //Párrafos 
-TextStyle parrafoStyle = TextStyle(
+TextStyle paragraph = const TextStyle(
   fontSize: 16,
-  color: Colors.black[800],
+  color: Colors.black,
   fontFamily: 'Roboto',
 );
 
 //Textos especiales 
-TextStyle especialStyle = TextStyle(
-  fontSize: 16,
+TextStyle special = const TextStyle(
+  fontSize: 34,
   fontWeight: FontWeight.bold,
-  color: Colors.blue,
+  color: Colors.deepOrangeAccent,
   fontFamily: 'Pacifico',
 );
 

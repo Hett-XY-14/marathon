@@ -10,9 +10,22 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class GamePage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
+    final gameProvider = Provider.of<GameProvider>(context);
+
+    List<Widget> stackChildren = [
+      GameBoard(),
+    ];
+
+    if (gameProvider.diceRolled) {
+      stackChildren.add(QuestionDisplay());
+    }
+
+    stackChildren.addAll([
+      DiceButton(),
+    ]);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Marathon'),
@@ -20,20 +33,12 @@ class GamePage extends StatelessWidget {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: SingleChildScrollView(
-            child: Stack(
-                children: <Widget>[
-                GameBoard(), // Assuming this is a widget you've created for the game board
-                SizedBox(height: 20),
-                //QuestionDisplay(), // Assuming this is a widget you've created to display the question
-                //AnswerOption(), // Assuming this is a widget you've created for the answer options
-                SizedBox(height: 20),
-                //DiceButton(), // Assuming this is a widget you've created for the dice button
-            ],
-            ),
+          child: Stack(
+            children: stackChildren,
           ),
         ),
       ),
     );
   }
 }
+
