@@ -19,7 +19,7 @@ class PlayerPosition extends StatelessWidget {
 
     // Calculate the position of the avatar on the board based on the player's position
     double boardWidth = 1400;
-    double avatarSize = 110;
+    double avatarSize = 90;
     double maxPosition = 31;
     double boardPadding = avatarSize / 2;
     double positionFraction = playerPosition / maxPosition;

@@ -22,7 +22,7 @@ class PlayerAvatar extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(25)),
               shape: BoxShape.rectangle,
               border: Border.all(
-                color: isCurrentPlayer ? Colors.green : Colors.black,
+                color: isCurrentPlayer ? Colors.green.shade100 : Colors.black,
                 width: 3.0,
               ),
               image: DecorationImage(
@@ -37,7 +37,7 @@ class PlayerAvatar extends StatelessWidget {
             style: title
         ),
         Text(
-            player.score.toString(),
+            "${player.position.toString()} Km",
             style: subtitle
         ),
       ],

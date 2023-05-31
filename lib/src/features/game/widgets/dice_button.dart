@@ -10,13 +10,19 @@ class DiceButton extends StatelessWidget {
   Widget build(BuildContext context) {
     var gameProvider = Provider.of<GameProvider>(context, listen: false);
 
-    return ElevatedButton(
-      child: Text('Roll Dice', style: TextStyle(color: Colors.white)),
-      onPressed: gameProvider.loading ? null : () {
-        gameProvider.rollDice(); // Use read instead of watch
-      },
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
+    return Positioned(
+      bottom: null,
+      right: 180,
+      child: ElevatedButton(
+        child: Text('Roll Dice', style: TextStyle(color: Colors.white)),
+        onPressed: gameProvider.loading ? null : () {
+          gameProvider.rollDice(); // Use read instead of watch
+        },
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
+          minimumSize: MaterialStateProperty.all(Size(200, 80)),
+          overlayColor: MaterialStateProperty.all(Colors.deepOrangeAccent),
+        ),
       ),
     );
   }

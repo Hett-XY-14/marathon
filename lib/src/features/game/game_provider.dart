@@ -11,6 +11,7 @@ class GameProvider with ChangeNotifier {
   final QuestionService questionService;
 
   Player? currentPlayer;
+  Player? winner;
   Question? currentQuestion;
   int dieResult = 0;
   bool diceRolled = false;
@@ -39,10 +40,13 @@ class GameProvider with ChangeNotifier {
 
   void answerQuestion(int answer) {
     bool isCorrect = questionService.checkAnswer(answer);
+    print("dieResult: ${dieResult}");
     gameService.updateScore(isCorrect, dieResult);
     gameFinished = gameService.isGameOver() == true ? true : questionService.isGameOver() == true ? true : false;
+    if (gameFinished) winner = gameService.getWinner();
     diceRolled = false; // Reset the dice roll flag after answering the question
     gameService.nextTurn();
+    currentPlayer = gameService.currentPlayer;
     notifyListeners();
   }
 }

@@ -33,4 +33,18 @@ class GameService {
     if (players[players.length-1].position >= 31) return true;
     return false;
   }
+
+  Player? getWinner() {
+    Player? highestScorePlayer = players[0];
+    int highestPlayerScore = 0;
+
+    for (var player in players) {
+      if(player.position >= 31) return player;
+      if(player.score > highestPlayerScore) {
+        highestPlayerScore = player.score;
+        highestScorePlayer = player;
+      }
+    }
+    return highestScorePlayer;
+  }
 }
