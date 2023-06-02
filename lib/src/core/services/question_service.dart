@@ -31,7 +31,7 @@ class QuestionService {
   }
 
   Question? getNextQuestion() {
-    int randomIndex = getRandomNumber(0,questions.length);
+    int randomIndex = getRandomNumber(0,questions.length-1);
     print(randomIndex);
     print(currentQuestion==null ? "getNextQuestion: current question is null" : currentQuestion!.question);
     currentQuestion = questions.removeAt(randomIndex);

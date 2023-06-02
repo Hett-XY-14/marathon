@@ -15,7 +15,7 @@ class DiceButton extends StatelessWidget {
       right: 180,
       child: ElevatedButton(
         child: Text('Roll Dice', style: TextStyle(color: Colors.white)),
-        onPressed: gameProvider.loading ? null : () {
+        onPressed: gameProvider.loading ? null : gameProvider.gameFinished ? null : () {
           gameProvider.rollDice(); // Use read instead of watch
         },
         style: ButtonStyle(

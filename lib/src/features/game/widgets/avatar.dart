@@ -22,7 +22,7 @@ class PlayerAvatar extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(25)),
               shape: BoxShape.rectangle,
               border: Border.all(
-                color: isCurrentPlayer ? Colors.green.shade100 : Colors.black,
+                color: isCurrentPlayer ? Colors.green.shade300 : Colors.black,
                 width: 3.0,
               ),
               image: DecorationImage(
