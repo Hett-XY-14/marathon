@@ -22,7 +22,7 @@ class QuestionDisplay extends StatelessWidget {
             padding: EdgeInsets.all(16.0),
             margin: EdgeInsets.all(8.0),
             decoration: BoxDecoration(
-              color: Colors.white70,
+              color: Colors.white,
               borderRadius: BorderRadius.circular(8.0),
               boxShadow: [
                 BoxShadow(
@@ -71,22 +71,19 @@ class QuestionDisplay extends StatelessWidget {
                         flex: 3,
                         child: ListView.builder(
                           itemCount: gameProvider.currentQuestion!.answers.length,
-                          prototypeItem: ListTile(
-                            title: Text(gameProvider.currentQuestion!.answers.first),
-                          ),
                           itemBuilder: (context, index) {
                             return Container(
-                              height: 70,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.all(Radius.circular(10)),
                                 shape: BoxShape.rectangle,
+                                color: Colors.black12,
                                 border: Border.all(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   width: 2.0,
                                 ),
                               ),
                               child: ListTile(
-                                title: Text(gameProvider.currentQuestion!.answers[index],style: paragraph,),
+                                title: Text(gameProvider.currentQuestion!.answers[index], style: paragraph),
                                 onTap: () {
                                   gameProvider.answerQuestion(index);
                                 },

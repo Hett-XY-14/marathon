@@ -45,7 +45,7 @@ class _SetupPageState extends State<SetupPage> {
         child: SizedBox(
           width: 600,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               // Show existing players
@@ -62,8 +62,8 @@ class _SetupPageState extends State<SetupPage> {
                             borderRadius: BorderRadius.all(Radius.circular(25)),
                             shape: BoxShape.rectangle,
                             border: Border.all(
-                              color: Colors.black,
-                              width: 2.0,
+                              color: Colors.white,
+                              width: 5,
                             ),
                             image: DecorationImage(
                               image: AssetImage(player.avatar),

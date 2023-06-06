@@ -21,10 +21,9 @@ class PlayerAvatar extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(25)),
               shape: BoxShape.rectangle,
-              border: Border.all(
-                color: isCurrentPlayer ? Colors.green.shade300 : Colors.black,
-                width: 3.0,
-              ),
+              border:  isCurrentPlayer ?
+                Border.all(color: Colors.orange, width: 5) :
+                Border.all(color: Colors.white, width: 3),
               image: DecorationImage(
                 image: AssetImage(player.avatar),
                 fit: BoxFit.cover,

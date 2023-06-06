@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:marathon/src/core/services/game_service.dart';
-import 'package:marathon/src/features/game/game_provider.dart';
 import 'package:marathon/src/features/game/setup_page.dart';
-import 'package:provider/provider.dart';
 import 'firebase_options.dart';
+import 'package:marathon/src/shared/app_theme.dart';
 import 'dart:async';
-import 'src/features/game/game_page.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,6 +32,7 @@ class App extends StatelessWidget {
             // Firebase initialization is complete, proceed with the app's UI
             return MaterialApp(
               title: 'Marathon',
+              theme: appTheme,
               home: SetupPage(),
             );
           }

@@ -19,9 +19,9 @@ class DiceButton extends StatelessWidget {
           gameProvider.rollDice(); // Use read instead of watch
         },
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
+          //backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
           minimumSize: MaterialStateProperty.all(Size(200, 80)),
-          overlayColor: MaterialStateProperty.all(Colors.deepOrangeAccent),
+          //overlayColor: MaterialStateProperty.all(Colors.deepOrangeAccent),
         ),
       ),
     );

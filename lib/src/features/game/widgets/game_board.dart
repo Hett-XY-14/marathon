@@ -15,18 +15,7 @@ class GameBoard extends StatelessWidget {
         alignment: Alignment.center,
         padding: const EdgeInsets.all(8.0),
         margin: const EdgeInsets.all(8.0),
-        decoration: BoxDecoration(
-          color: Colors.white70,
-          borderRadius: BorderRadius.circular(8.0),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 5,
-              offset: Offset(0, 3),
-            ),
-          ],
-        ),
+        decoration: boxDecoration,
         width: 1400,
         height: 700,
         child: Row(
@@ -34,14 +23,15 @@ class GameBoard extends StatelessWidget {
             Expanded(
               flex: 10,
               child: Container(
-                color: Colors.white70,
+                decoration: boxDecoration,
                 child: Consumer<GameProvider>(
                   builder: (context, gameProvider, child) {
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
+
                       children: [
                         for (var player in gameProvider.gameService.players)
-                        PlayerLine(player: player)
+                        PlayerLine(player: player),
                       ],
                     );
                   },
@@ -51,7 +41,7 @@ class GameBoard extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Container(
-                color: Colors.grey,
+                decoration: boxDecoration,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
@@ -69,3 +59,21 @@ class GameBoard extends StatelessWidget {
     );
   }
 }
+
+var boxDecoration = const BoxDecoration(
+  border: Border(
+    top: BorderSide(
+      color: Colors.black,
+      width: 1.0,
+    ),
+    bottom: BorderSide(
+      color: Colors.black,
+      width: 1.0,
+    ),
+    right: BorderSide(
+      color: Colors.black,
+      width: 1.0,
+    ),
+  ),
+  color: Colors.white10
+);

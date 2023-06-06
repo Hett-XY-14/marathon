@@ -14,16 +14,21 @@ class PlayerLine extends StatelessWidget {
     return Expanded(
       child: Stack(
         children: [
+          Divider(
+            color: Colors.black54,
+            thickness: 1,
+          ),
           Consumer<GameProvider>(
             builder: (context, gameProvider, child) {
               return PlayerPosition(
                   player: player!,
                   isCurrentPlayer: gameProvider.gameService.currentPlayer.name == player!.name ? true : false
               );
-
-
-
             }
+          ),
+          Divider(
+            color: Colors.black54,
+            thickness: 1,
           ),
         ],
       )
