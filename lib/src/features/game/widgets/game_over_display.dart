@@ -36,15 +36,13 @@ class GameOver extends StatelessWidget {
             height: 600,
             child: Stack(
               children: [
-                Center(
-                  child: Positioned(
-                    left: null,
-                    top: 70,
-                    child: PlayerAvatar(
-                      avatarSize: 200,
-                      isCurrentPlayer: true,
-                      player: gameProvider.winner!,
-                    ),
+                Positioned(
+                  left: 200,
+                  top: 70,
+                  child: PlayerAvatar(
+                    avatarSize: 200,
+                    isCurrentPlayer: true,
+                    player: gameProvider.winner!,
                   ),
                 ),
                 Positioned(
