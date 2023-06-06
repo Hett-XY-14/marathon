@@ -43,7 +43,7 @@ class GameOver extends StatelessWidget {
                     child: PlayerAvatar(
                       avatarSize: 200,
                       isCurrentPlayer: true,
-                      player: gameProvider.winner!,  // Removed !
+                      player: gameProvider.winner!,
                     ),
                   ),
                 ),
